@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏银彩 · 个人网站</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #211e1b; color: #faf7f2; font-family: "Quicksand", "YouYuan", "幼圆", "Segoe UI", sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; }
+        h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 300; letter-spacing: 0.1em; }
+        p { font-size: 14px; color: rgba(250, 247, 242, 0.6); letter-spacing: 0.05em; }
+        .loader { width: 32px; height: 32px; border: 2px solid rgba(250, 247, 242, 0.2); border-top-color: #faf7f2; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <meta http-equiv="refresh" content="1.5;url=pages/home.html">
+</head>
+<body>
+    <h1>夏银彩</h1>
+    <p>正在进入个人网站…</p>
+    <div class="loader"></div>
+    <script>
+        setTimeout(function() { window.location.href = 'pages/home.html'; }, 1500);
+    </script>
+</body>
+</html>
