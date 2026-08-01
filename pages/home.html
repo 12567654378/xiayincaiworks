@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏银彩 个人首页</title>
+    <style id="theme-vars">
+:root {
+  --lu-primary: #2e2a26;
+  --lu-primary-dark: #211e1b;
+  --lu-primary-muted: #6e6864;
+
+  /* Surfaces */
+  --lu-background: #f2eee8;
+  --lu-card: #ffffff;
+  --lu-cream: #f2eee8;
+  --lu-foreground: #211e1b;
+  --lu-muted: rgba(250, 247, 242, 0.70);
+  --lu-white: #faf7f2;
+  --lu-text-on-red-muted: rgba(250, 247, 242, 0.58);
+  --lu-text-on-cream-muted: rgba(33, 30, 27, 0.60);
+  --lu-hero-fallback: #2e2a26;
+
+  /* Borders */
+  --lu-border: rgba(250, 247, 242, 0.18);
+  --lu-border-dark: rgba(33, 30, 27, 0.10);
+  --lu-border-strong: rgba(250, 247, 242, 0.55);
+  --lu-border-light: rgba(250, 247, 242, 0.12);
+
+  /* Radius */
+  --lu-radius-sm: 4px;
+  --lu-radius-md: 8px;
+  --lu-radius-lg: 12px;
+
+  /* Typography — 幼圆(Quicksand for Latin/numbers) for body, Arial Black for section titles, 方正小标宋 for item titles */
+  --lu-font-sans: "Quicksand", "YouYuan", "幼圆", "STYouyuan", "华文幼圆", "Segoe UI", sans-serif;
+  --lu-font-heavy: "FZXiaoBiaoSong-B05S", "方正小标宋_GBK", "STZhongsong", "STSong", "SimSun", "Songti SC", serif;
+  --lu-font-lisu: "Alibaba PuHuiTi", "阿里巴巴普惠体", "AlibabaSans", sans-serif;
+  --lu-font-display: "Arial Black", "Arial Bold", "Helvetica Neue", sans-serif;
+  --lu-font-serif: var(--lu-font-heavy);
+}
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--lu-background);
+    --color-foreground: var(--lu-foreground);
+    --color-card: var(--lu-card);
+    --color-primary: var(--lu-primary);
+    --color-muted: var(--lu-muted);
+    --color-border: var(--lu-border);
+    --radius-sm: var(--lu-radius-sm);
+    --radius-md: var(--lu-radius-md);
+    --radius-lg: var(--lu-radius-lg);
+  }
+  @layer base {
+    body { background: var(--lu-background); color: var(--lu-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--lu-background); }
+      .text-background { color: var(--lu-background); }
+      .border-background { border-color: var(--lu-background); }
+      .ring-background { --tw-ring-color: var(--lu-background); }
+      .bg-foreground { background-color: var(--lu-foreground); }
+      .text-foreground { color: var(--lu-foreground); }
+      .border-foreground { border-color: var(--lu-foreground); }
+      .ring-foreground { --tw-ring-color: var(--lu-foreground); }
+      .bg-card { background-color: var(--lu-card); }
+      .text-card { color: var(--lu-card); }
+      .border-card { border-color: var(--lu-card); }
+      .ring-card { --tw-ring-color: var(--lu-card); }
+      .bg-primary { background-color: var(--lu-primary); }
+      .text-primary { color: var(--lu-primary); }
+      .border-primary { border-color: var(--lu-primary); }
+      .ring-primary { --tw-ring-color: var(--lu-primary); }
+      .bg-muted { background-color: var(--lu-muted); }
+      .text-muted { color: var(--lu-muted); }
+      .border-muted { border-color: var(--lu-muted); }
+      .ring-muted { --tw-ring-color: var(--lu-muted); }
+      .bg-border { background-color: var(--lu-border); }
+      .text-border { color: var(--lu-border); }
+      .border-border { border-color: var(--lu-border); }
+      .ring-border { --tw-ring-color: var(--lu-border); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex; align-items: center; justify-content: center;
+        -webkit-mask-size: contain; mask-size: contain;
+        -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+        -webkit-mask-position: center; mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+        <style id="page-critical-layout">
+            *, *::before, *::after { box-sizing: border-box; }
+            html { scroll-behavior: smooth; }
+            .lu-container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+            .lu-section { padding: 80px 0; scroll-margin-top: 90px; }
+            .lu-section-red { background: var(--lu-primary); color: var(--lu-white); }
+            .lu-section-cream { background: var(--lu-cream); color: var(--lu-foreground); }
+            .lu-section-dark { background: var(--lu-primary-dark); color: var(--lu-white); }
+
+            /* Floating pill nav — fixed, centered, white+high transparency, rounded */
+            .lu-floating-nav {
+              position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+              z-index: 100; display: flex; align-items: center; gap: 2px;
+              padding: 6px 8px; background: rgba(255,255,255,0.55);
+              backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+              border: 1px solid rgba(255,255,255,0.4); border-radius: 999px;
+              box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
+            }
+            .lu-nav-item {
+              display: flex; flex-direction: column; align-items: center; gap: 1px;
+              padding: 7px 18px; border-radius: 999px; text-decoration: none;
+              transition: background 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1);
+              position: relative;
+            }
+            .lu-nav-item:hover { background: rgba(46,42,38,0.07); transform: translateY(-1px); }
+            .lu-nav-item.lu-nav-active { background: var(--lu-primary); }
+            .lu-nav-item.lu-nav-active .lu-nav-zh { color: var(--lu-white); }
+            .lu-nav-item.lu-nav-active .lu-nav-en { color: rgba(250,247,242,0.6); }
+            .lu-nav-zh { font-family: var(--lu-font-sans); font-size: 13px; font-weight: 400; color: var(--lu-foreground); line-height: 1.15; transition: color 0.3s ease; }
+            .lu-nav-en { font-family: var(--lu-font-sans); font-size: 8px; font-weight: 400; color: var(--lu-text-on-cream-muted); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.15; transition: color 0.3s ease; }
+
+            /* Hero split-screen */
+            .lu-hero-split { display: flex; min-height: 100vh; width: 100%; position: relative; background: var(--lu-hero-fallback); }
+            .lu-hero-text { flex: 1 1 50%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 96px 64px 96px 56px; color: var(--lu-white); background: linear-gradient(to right, var(--lu-primary-dark) 0%, var(--lu-primary) 100%); order: 1; position: relative; z-index: 2; }
+            .lu-hero-photo { flex: 1 1 50%; min-height: 100vh; background-image: url('../assets/xiayincai-portrait.jpg'); background-size: 100% auto; background-position: center top; background-repeat: no-repeat; background-color: var(--lu-hero-fallback); order: 2; position: relative; }
+            .lu-hero-photo::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 42%; background: linear-gradient(to right, var(--lu-primary) 0%, rgba(46,42,38,0.9) 12%, rgba(46,42,38,0.65) 30%, rgba(46,42,38,0.35) 52%, rgba(46,42,38,0.1) 78%, transparent 100%); pointer-events: none; z-index: 1; }
+            .lu-hero-photo::after { content: ""; display: none; }
+            .lu-hero-kicker { font-family: var(--lu-font-sans); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.18em; margin: 0 0 28px 0; color: var(--lu-muted); animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
+            .lu-hero-name { font-family: var(--lu-font-lisu); font-size: clamp(52px, 7vw, 84px); line-height: 1.05; font-weight: 700; letter-spacing: 0.06em; margin: 0 0 24px 0; text-wrap: balance; word-break: keep-all; overflow-wrap: break-word; animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s both; }
+            .lu-hero-subtitle { font-family: var(--lu-font-sans); font-size: clamp(15px, 1.2vw, 17px); line-height: 1.75; font-weight: 400; margin: 0 0 36px 0; max-width: 460px; color: var(--lu-muted); word-break: keep-all; overflow-wrap: break-word; animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s both; }
+            .lu-hero-buttons { animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s both; }
+            @keyframes lu-hero-fade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+            .lu-scroll-cue { position: absolute; bottom: 32px; left: 56px; z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--lu-muted); animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 1s both; }
+            .lu-scroll-cue-text { font-family: var(--lu-font-sans); font-size: 10px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; }
+            .lu-scroll-cue-line { width: 1px; height: 36px; background: linear-gradient(to bottom, var(--lu-muted), transparent); position: relative; overflow: hidden; }
+            .lu-scroll-cue-line::after { content: ""; position: absolute; top: -100%; left: 0; width: 100%; height: 50%; background: linear-gradient(to bottom, transparent, var(--lu-white)); animation: lu-scroll-dot 2s ease-in-out infinite; }
+            @keyframes lu-scroll-dot { 0% { top: -50%; } 100% { top: 100%; } }
+
+            /* Hero buttons */
+            .lu-hero-buttons { display: flex; flex-wrap: wrap; gap: 16px; }
+            .lu-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; border-radius: var(--lu-radius-sm); font-family: var(--lu-font-sans); font-size: 14px; font-weight: 400; letter-spacing: 0.04em; text-decoration: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: pointer; border: none; }
+            .lu-btn-primary { background: var(--lu-white); color: var(--lu-primary); }
+            .lu-btn-primary:hover { background: rgba(250,247,242,0.92); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+            .lu-btn-outline { background: transparent; color: var(--lu-white); border: 1px solid var(--lu-border-strong); }
+            .lu-btn-outline:hover { background: rgba(250,247,242,0.1); border-color: var(--lu-white); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+            .lu-btn svg { width: 16px; height: 16px; }
+
+            /* Feature blocks */
+            .lu-feature { display: flex; align-items: stretch; gap: 48px; }
+            .lu-feature-cream .lu-feature-body { flex: 0 0 46%; display: flex; flex-direction: column; justify-content: center; }
+            .lu-feature-cream .lu-feature-media { flex: 0 0 54%; display: flex; flex-direction: column; justify-content: center; min-height: 420px; }
+
+            /* Basic info grid */
+            .lu-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; margin: 0 0 32px 0; }
+            .lu-info-item { display: flex; align-items: baseline; gap: 12px; }
+            .lu-info-label { font-family: var(--lu-font-sans); font-size: 14px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--lu-text-on-cream-muted); flex-shrink: 0; min-width: 4.5em; text-align: justify; text-align-last: justify; }
+            .lu-info-value { font-family: var(--lu-font-sans); font-size: 14px; font-weight: 400; color: var(--lu-foreground); }
+
+            /* Skill chips — uniform height, centered content, rhythmic staggered wave */
+            .lu-skill-display { display: flex; flex-wrap: wrap; align-items: flex-start; align-content: center; gap: 14px 14px; height: 100%; padding: 4px; max-width: 480px; }
+            .lu-skill-chip { display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 22px; border: 1px solid rgba(46,42,38,0.08); border-radius: 20px; font-family: var(--lu-font-sans); font-size: 14px; font-weight: 400; line-height: 1; color: var(--lu-foreground); background: rgba(255,255,255,0.45); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: default; position: relative; overflow: hidden; white-space: nowrap; }
+            .lu-skill-chip::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, var(--lu-primary) 0%, var(--lu-primary-dark) 100%); opacity: 0; transition: opacity 0.4s cubic-bezier(0.16,1,0.3,1); z-index: 0; }
+            .lu-skill-chip span { position: relative; z-index: 1; }
+            .lu-skill-chip:hover { color: var(--lu-white); border-color: var(--lu-primary); transform: translateY(-5px) scale(1.06); box-shadow: 0 8px 24px rgba(46,42,38,0.18); }
+            .lu-skill-chip:hover::before { opacity: 1; }
+            .lu-skill-chip:nth-child(4n+1) { margin-top: 0; }
+            .lu-skill-chip:nth-child(4n+2) { margin-top: 10px; }
+            .lu-skill-chip:nth-child(4n+3) { margin-top: 16px; }
+            .lu-skill-chip:nth-child(4n) { margin-top: 10px; }
+
+            /* Section content — big titles use Arial Black English */
+            .lu-section-headline { font-family: var(--lu-font-display); font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: 0.01em; margin: 0 0 24px 0; text-transform: capitalize; text-wrap: balance; }
+            .lu-subsection-title { font-family: var(--lu-font-heavy); font-size: 16px; line-height: 1.3; font-weight: 400; letter-spacing: 0.04em; margin: 0 0 20px 0; color: rgba(250, 247, 242, 0.82); }
+            .lu-subsection-title-cream { font-family: var(--lu-font-heavy); font-size: 18px; line-height: 1.3; font-weight: 400; letter-spacing: 0.03em; margin: 0 0 20px 0; color: rgba(33, 30, 27, 0.72); }
+            .lu-subsection-title-cream:not(:first-child) { margin-top: 48px; }
+            .lu-body { font-family: var(--lu-font-sans); font-size: 16px; line-height: 1.75; font-weight: 400; margin: 0 0 32px 0; }
+            .lu-section-red .lu-body { color: var(--lu-muted); }
+            .lu-section-cream .lu-body { color: var(--lu-text-on-cream-muted); }
+            .lu-section-dark .lu-body { color: var(--lu-muted); }
+
+            /* Text CTA */
+            .lu-text-cta { font-family: var(--lu-font-sans); font-size: 15px; font-weight: 400; letter-spacing: 0.04em; color: var(--lu-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--lu-primary); transition: color 0.3s ease, border-color 0.3s ease, gap 0.3s ease; }
+            .lu-text-cta:hover { color: var(--lu-primary-muted); border-bottom-color: var(--lu-primary-muted); gap: 16px; }
+
+            /* Education split layout — equal height, one screen */
+            .lu-edu-section { min-height: 100vh; display: flex; align-items: center; }
+            .lu-edu-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; width: 100%; align-items: stretch; }
+            .lu-edu-left { display: flex; flex-direction: column; }
+            .lu-edu-right { display: flex; flex-direction: column; min-height: 0; }
+            .lu-edu-timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 36px; }
+            .lu-edu-timeline-item { position: relative; padding: 0 0 0 40px; border-left: 1px solid var(--lu-border); }
+            .lu-edu-timeline-item::before { content: ""; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--lu-white); box-shadow: 0 0 0 2px var(--lu-primary); }
+            .lu-edu-date { font-family: var(--lu-font-sans); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.12em; color: var(--lu-muted); margin: 0 0 10px 0; }
+            .lu-edu-title { font-family: var(--lu-font-heavy); font-size: 19px; line-height: 1.3; font-weight: 400; letter-spacing: 0.03em; margin: 0 0 10px 0; color: rgba(250, 247, 242, 0.82); }
+            .lu-edu-text { font-family: var(--lu-font-sans); font-size: 14px; line-height: 1.65; font-weight: 400; margin: 0 0 16px 0; color: var(--lu-muted); }
+
+            /* Photo stack — 3:4 portrait cards, stacked, fan out on hover */
+            .lu-edu-photostack { position: relative; height: 130px; margin-top: 4px; }
+            .lu-edu-photo-card { position: absolute; width: 84px; aspect-ratio: 3/4; border-radius: var(--lu-radius-sm); border: 1px solid var(--lu-border-strong); transition: all 0.5s cubic-bezier(0.16,1,0.3,1); overflow: hidden; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.15); background-size: cover; background-position: center; }
+            .lu-ep-1 { left: 0; top: 0; transform: rotate(-7deg); z-index: 3; }
+            .lu-ep-2 { left: 50px; top: 8px; transform: rotate(3deg); z-index: 2; }
+            .lu-ep-3 { left: 100px; top: 0; transform: rotate(9deg); z-index: 1; }
+            .lu-edu-photostack:hover .lu-ep-1 { transform: rotate(-16deg) translateX(-28px) translateY(-8px) scale(1.05); z-index: 1; }
+            .lu-edu-photostack:hover .lu-ep-2 { transform: rotate(0deg) translateY(-16px) scale(1.08); z-index: 3; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+            .lu-edu-photostack:hover .lu-ep-3 { transform: rotate(16deg) translateX(28px) translateY(-8px) scale(1.05); z-index: 1; }
+
+            /* Awards list — compact, smaller font, scrollable */
+            .lu-awards-scroll { flex: 1; min-height: 0; max-height: calc(100vh - 220px); overflow-y: auto; padding-right: 8px; }
+            .lu-awards-scroll::-webkit-scrollbar { width: 3px; }
+            .lu-awards-scroll::-webkit-scrollbar-track { background: transparent; }
+            .lu-awards-scroll::-webkit-scrollbar-thumb { background: var(--lu-border); border-radius: 2px; }
+            .lu-awards-list { list-style: none; margin: 0; padding: 0; }
+            .lu-awards-list-item { display: flex; align-items: baseline; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--lu-border-light); transition: padding-left 0.3s ease; }
+            .lu-awards-list-item:hover { padding-left: 8px; }
+            .lu-awards-year { font-family: var(--lu-font-sans); font-size: 10px; font-weight: 400; letter-spacing: 0.04em; color: var(--lu-muted); flex-shrink: 0; width: 56px; }
+            .lu-awards-name { font-family: var(--lu-font-sans); font-size: 11.5px; font-weight: 400; color: var(--lu-white); flex: 1; line-height: 1.45; }
+            .lu-awards-level { font-family: var(--lu-font-sans); font-size: 9px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lu-text-on-red-muted); flex-shrink: 0; }
+
+            /* Interactive Timeline (hover-reveal) */
+            .lu-itimeline { position: relative; list-style: none; margin: 0; padding: 0; }
+            .lu-itimeline::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, transparent 0%, var(--lu-border-dark) 6%, var(--lu-border-dark) 94%, transparent 100%); }
+            .lu-itimeline::after { content: ""; position: absolute; left: 5px; top: 0; width: 1px; height: 50px; background: linear-gradient(to bottom, transparent, var(--lu-primary-muted), transparent); animation: lu-line-flow 5s ease-in-out infinite; pointer-events: none; }
+            @keyframes lu-line-flow { 0%, 100% { top: 0; opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { top: 100%; opacity: 0; } }
+            .lu-itimeline-item { position: relative; padding: 0 0 44px 48px; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding-right 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+            .lu-itimeline-item:hover { padding-right: 250px; }
+            .lu-itimeline-item.lu-reveal:hover { transition-delay: 0s; }
+            .lu-itimeline-item:last-child { padding-bottom: 0; }
+            .lu-itimeline-item::before { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 24px; background: transparent; border-radius: var(--lu-radius-sm); transition: background 0.4s ease; }
+            .lu-itimeline-item:hover::before { background: rgba(46,42,38,0.03); }
+            .lu-itimeline-dot { position: absolute; left: 0; top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--lu-foreground); border: 2px solid var(--lu-cream); box-shadow: 0 0 0 1px var(--lu-border-dark); transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1); z-index: 2; }
+            .lu-itimeline-item:hover .lu-itimeline-dot { background: var(--lu-primary); box-shadow: 0 0 0 6px rgba(46,42,38,0.06), 0 0 24px rgba(46,42,38,0.15); transform: scale(1.3); }
+            .lu-itimeline-date { font-family: var(--lu-font-sans); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.14em; color: var(--lu-text-on-cream-muted); margin: 0 0 6px 0; transition: color 0.3s ease; }
+            .lu-itimeline-item:hover .lu-itimeline-date { color: var(--lu-foreground); }
+            .lu-itimeline-title { font-family: var(--lu-font-heavy); font-size: 18px; line-height: 1.3; font-weight: 400; letter-spacing: 0.03em; margin: 0; color: rgba(33, 30, 27, 0.72); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+            .lu-itimeline-item:hover .lu-itimeline-title { transform: translateX(8px); }
+            .lu-itimeline-detail { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease 0.08s, margin-top 0.5s ease; margin-top: 0; }
+            .lu-itimeline-item:hover .lu-itimeline-detail { max-height: 500px; opacity: 1; margin-top: 16px; }
+            .lu-itimeline-detail-inner { padding: 18px 22px; background: rgba(33, 30, 27, 0.035); border-left: 2px solid var(--lu-primary-muted); border-radius: 0 var(--lu-radius-sm) var(--lu-radius-sm) 0; transform: translateX(-12px) scale(0.98); opacity: 0; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, opacity 0.35s ease 0.1s; }
+            .lu-itimeline-item:hover .lu-itimeline-detail-inner { transform: translateX(0) scale(1); opacity: 1; }
+            .lu-itimeline-detail-text { font-family: var(--lu-font-sans); font-size: 14px; line-height: 1.75; font-weight: 400; color: var(--lu-text-on-cream-muted); margin: 0; }
+            @media (hover: none) {
+              .lu-itimeline-detail { max-height: none; opacity: 1; margin-top: 14px; }
+              .lu-itimeline-detail-inner { transform: translateX(0); opacity: 1; }
+            }
+
+            /* Project hover-reveal cards */
+            .lu-proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .lu-proj-card { position: relative; padding: 28px 32px; border: 1px solid var(--lu-border-light); border-radius: var(--lu-radius-md); cursor: pointer; transition: border-color 0.4s ease, background-color 0.4s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease; overflow: hidden; }
+            .lu-proj-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--lu-white); transform: scaleY(0); transform-origin: top; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+            .lu-proj-card::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(250,247,242,0.06) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+            .lu-proj-card:hover { border-color: var(--lu-border-strong); background: rgba(250, 247, 242, 0.04); transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.15); }
+            .lu-proj-card:hover::before { transform: scaleY(1); }
+            .lu-proj-card:hover::after { opacity: 1; }
+            .lu-proj-role { font-family: var(--lu-font-sans); font-size: 11px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.12em; color: var(--lu-muted); margin: 0 0 10px 0; }
+            .lu-proj-title { font-family: var(--lu-font-heavy); font-size: 16px; line-height: 1.35; font-weight: 400; letter-spacing: 0.03em; margin: 0; color: rgba(250, 247, 242, 0.82); transition: transform 0.3s ease; }
+            .lu-proj-card:hover .lu-proj-title { transform: translateX(6px); }
+            .lu-proj-detail { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease 0.05s, margin-top 0.4s ease; }
+            .lu-proj-card:hover .lu-proj-detail { max-height: 500px; opacity: 1; margin-top: 16px; }
+            .lu-proj-detail-text { font-family: var(--lu-font-sans); font-size: 13px; line-height: 1.7; font-weight: 400; color: var(--lu-muted); margin: 0 0 12px 0; }
+            .lu-proj-link { font-family: var(--lu-font-sans); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--lu-white); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid var(--lu-white); padding-bottom: 2px; transition: gap 0.3s ease; }
+            .lu-proj-link:hover { gap: 12px; }
+            @media (hover: none) {
+              .lu-proj-detail { max-height: none; opacity: 1; margin-top: 16px; }
+            }
+
+            /* Experience hover photo popup */
+            .lu-itimeline-photo { position: absolute; right: 0; top: 0; width: 220px; height: 150px; border-radius: var(--lu-radius-md); overflow: hidden; opacity: 0; transform: translateX(30px) scale(0.9); transition: all 0.45s cubic-bezier(0.16,1,0.3,1); pointer-events: none; z-index: 10; box-shadow: 0 16px 48px rgba(0,0,0,0.18); border: 3px solid var(--lu-white); }
+            .lu-itimeline-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+            .lu-itimeline-item:hover .lu-itimeline-photo { opacity: 1; transform: translateX(0) scale(1); }
+            @media (hover: none) {
+              .lu-itimeline-photo { position: relative; width: 100%; height: 180px; opacity: 1; transform: none; margin-top: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+              .lu-itimeline-item:hover { padding-right: 0; }
+            }
+
+            /* Project cover images */
+            .lu-proj-cover { width: 100%; height: 170px; border-radius: var(--lu-radius-sm); overflow: hidden; margin-bottom: 18px; position: relative; }
+            .lu-proj-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+            .lu-proj-card:hover .lu-proj-cover img { transform: scale(1.08); }
+            .lu-proj-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.15) 100%); pointer-events: none; }
+
+            /* About Me life photos — clean gallery row */
+            .lu-life-photos { display: flex; gap: 14px; margin-top: 36px; }
+            .lu-life-photo { flex: 1 1 0; height: 180px; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,0.1); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease; }
+            .lu-life-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.55s cubic-bezier(0.16,1,0.3,1); }
+            .lu-life-photo:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.16); }
+            .lu-life-photo:hover img { transform: scale(1.06); }
+
+            /* Contact with icons */
+            .lu-contact-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 8px; }
+            .lu-contact-link { font-family: var(--lu-font-sans); font-size: 14px; font-weight: 400; color: var(--lu-white); text-decoration: none; border: 1px solid var(--lu-border); border-radius: var(--lu-radius-sm); padding: 12px 20px; display: inline-flex; align-items: center; gap: 10px; transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease; }
+            .lu-contact-link:hover { border-color: var(--lu-border-strong); background: rgba(250,247,242,0.08); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+            .lu-contact-icon { width: 18px; height: 18px; flex-shrink: 0; opacity: 0.72; }
+            .lu-contact-icon svg { width: 100%; height: 100%; }
+
+            /* Back to top button with scroll progress ring */
+            .lu-back-top { position: fixed; bottom: 28px; right: 28px; z-index: 90; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+            .lu-back-top.lu-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+            .lu-back-top:hover { background: var(--lu-white); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+            .lu-back-top svg { width: 20px; height: 20px; color: var(--lu-primary); }
+            .lu-back-top-ring { position: absolute; inset: -1px; pointer-events: none; }
+            .lu-back-top-ring circle { fill: none; stroke-width: 2; }
+            .lu-back-top-ring .lu-ring-track { stroke: rgba(46,42,38,0.08); }
+            .lu-back-top-ring .lu-ring-progress { stroke: var(--lu-primary); stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; transition: stroke-dashoffset 0.15s linear; }
+
+            /* Footer */
+            .lu-footer { background: var(--lu-primary-dark); color: var(--lu-white); padding: 64px 0 48px; text-align: center; border-top: 1px solid var(--lu-border-light); }
+            .lu-footer-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+            .lu-footer-logo { font-family: var(--lu-font-sans); font-size: 28px; font-weight: 400; letter-spacing: 0.08em; }
+            .lu-footer-tagline { font-family: var(--lu-font-sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; color: var(--lu-muted); margin: 0; }
+
+            /* Scroll reveal */
+            .lu-reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+            .lu-reveal.lu-revealed { opacity: 1; transform: translateY(0); }
+            .lu-section-headline.lu-reveal { transition-delay: 0s; }
+            .lu-body.lu-reveal { transition-delay: 0.1s; }
+            .lu-info-grid.lu-reveal { transition-delay: 0.2s; }
+            .lu-text-cta.lu-reveal { transition-delay: 0.3s; }
+            .lu-itimeline-item.lu-reveal { transition-delay: calc(var(--ri, 0) * 0.1s), border-color 0.4s ease, background-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+            .lu-proj-card.lu-reveal { transition-delay: calc(var(--ri, 0) * 0.1s), border-color 0.4s ease, background-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+            @media (min-width: 1024px) {
+                .lu-container { padding: 0 48px; }
+                .lu-section { padding: 110px 0; }
+            }
+            @media (max-width: 1024px) {
+                .lu-hero-text { padding: 96px 40px; }
+                .lu-floating-nav { gap: 0; padding: 4px 4px; }
+                .lu-nav-item { padding: 6px 12px; }
+                .lu-nav-zh { font-size: 12px; }
+                .lu-nav-en { font-size: 7px; }
+            }
+            @media (max-width: 768px) {
+                .lu-floating-nav { top: 10px; max-width: calc(100vw - 20px); overflow-x: auto; gap: 0; padding: 4px 4px; }
+                .lu-nav-item { padding: 5px 10px; flex-shrink: 0; }
+                .lu-nav-zh { font-size: 11px; }
+                .lu-nav-en { font-size: 7px; }
+                .lu-hero-split { flex-direction: column; min-height: auto; }
+                .lu-hero-photo { min-height: 46vh; flex: 0 0 auto; background-size: cover; background-position: center center; }
+                .lu-hero-photo::before { width: 100%; height: 120px; background: linear-gradient(to bottom, var(--lu-primary), transparent); }
+                .lu-hero-text { flex: 1 1 auto; min-height: 54vh; padding: 64px 24px; align-items: flex-start; background: linear-gradient(to bottom, var(--lu-primary-dark) 0%, var(--lu-primary) 100%); }
+                .lu-feature { flex-direction: column; gap: 32px; }
+                .lu-feature-cream .lu-feature-media, .lu-feature-cream .lu-feature-body { flex: 1 1 auto; width: 100%; min-height: 0; }
+                .lu-info-grid { grid-template-columns: 1fr; }
+                .lu-edu-split { grid-template-columns: 1fr; gap: 40px; }
+                .lu-edu-section { min-height: auto; }
+                .lu-awards-scroll { max-height: 400px; }
+                .lu-proj-grid { grid-template-columns: 1fr; }
+                .lu-awards-list-item { flex-wrap: wrap; gap: 6px 16px; }
+                .lu-skill-chip { height: 40px; padding: 0 20px; font-size: 14px; }
+                .lu-skill-chip:nth-child(4n+1) { margin-top: 0; }
+                .lu-skill-chip:nth-child(4n+2) { margin-top: 8px; }
+                .lu-skill-chip:nth-child(4n+3) { margin-top: 12px; }
+                .lu-skill-chip:nth-child(4n) { margin-top: 8px; }
+                .lu-back-top { bottom: 20px; right: 20px; }
+                .lu-scroll-cue { display: none; }
+                .lu-life-photos { flex-wrap: wrap; }
+                .lu-life-photo { height: 140px; flex: 1 1 40%; }
+            }
+        </style>
+
+        <!-- Floating pill nav -->
+        <nav class="lu-floating-nav" aria-label="主导航">
+            <a class="lu-nav-item" href="#home"><span class="lu-nav-zh">首页</span><span class="lu-nav-en">Home</span></a>
+            <a class="lu-nav-item" href="#about"><span class="lu-nav-zh">关于</span><span class="lu-nav-en">About</span></a>
+            <a class="lu-nav-item" href="#education"><span class="lu-nav-zh">教育</span><span class="lu-nav-en">Education</span></a>
+            <a class="lu-nav-item" href="#experience"><span class="lu-nav-zh">校园</span><span class="lu-nav-en">Campus</span></a>
+            <a class="lu-nav-item" href="#internship"><span class="lu-nav-zh">实习</span><span class="lu-nav-en">Internship</span></a>
+            <a class="lu-nav-item" href="#projects"><span class="lu-nav-zh">项目</span><span class="lu-nav-en">Projects</span></a>
+            <a class="lu-nav-item" href="#contact"><span class="lu-nav-zh">联系</span><span class="lu-nav-en">Contact</span></a>
+        </nav>
+
+        <section id="home" class="lu-hero-split" aria-label="首页主视觉">
+            <div class="lu-hero-text">
+                <p class="lu-hero-kicker">湖南大学 · 新闻传播学 · 2028届硕士</p>
+                <h1 class="lu-hero-name">夏银彩</h1>
+                <p class="lu-hero-subtitle">湖南大学新闻与传播学院2028届硕士毕业生。兼具内容运营实战经验与AI技术研究能力，人文洞察 × 技术理解 × 商业思维。</p>
+                <div class="lu-hero-buttons">
+                    <a class="lu-btn lu-btn-primary" href="#contact">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        联系方式
+                    </a>
+                    <a class="lu-btn lu-btn-outline" href="../湖南大学本硕_28届_夏银彩_可异地实习随时到岗_简历.pdf" download>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        下载简历
+                    </a>
+                </div>
+            </div>
+            <div class="lu-hero-photo" role="img" aria-label="夏银彩肖像照"></div>
+            <div class="lu-scroll-cue">
+                <span class="lu-scroll-cue-text">Scroll</span>
+                <span class="lu-scroll-cue-line"></span>
+            </div>
+        </section>
+
+        <section id="about" class="lu-section lu-section-cream" aria-labelledby="about-title">
+            <div class="lu-container lu-feature lu-feature-cream">
+                <div class="lu-feature-body">
+                    <h2 class="lu-section-headline lu-reveal" id="about-title">About Me</h2>
+                    <p class="lu-body lu-reveal">湖南大学新闻传播学硕士研究生，兼具内容运营实战经验与AI技术研究能力。有过从0到1搭建业务体系经验，具备数据驱动决策思维，文字功底深厚，有较强沟通协调、活动组织与策划能力，抗压能力强、能很快适应工作节奏。论文关注国内主流大语言模型的对齐问题，有Vibe Coding经验。</p>
+                    <div class="lu-info-grid lu-reveal">
+                        <div class="lu-info-item"><span class="lu-info-label">出生日期</span><span class="lu-info-value">2002.04</span></div>
+                        <div class="lu-info-item"><span class="lu-info-label">政治面貌</span><span class="lu-info-value">中共党员</span></div>
+                    </div>
+                    <a class="lu-text-cta lu-reveal" href="#projects">点击查看作品 <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="lu-feature-media lu-reveal">
+                    <div class="lu-skill-display">
+                        <span class="lu-skill-chip"><span>数据分析</span></span>
+                        <span class="lu-skill-chip"><span>SQL</span></span>
+                        <span class="lu-skill-chip"><span>Excel</span></span>
+                        <span class="lu-skill-chip"><span>Vibe Coding</span></span>
+                        <span class="lu-skill-chip"><span>prompt工程</span></span>
+                        <span class="lu-skill-chip"><span>资源整合</span></span>
+                        <span class="lu-skill-chip"><span>协调沟通</span></span>
+                        <span class="lu-skill-chip"><span>统筹策划</span></span>
+                        <span class="lu-skill-chip"><span>英语6级</span></span>
+                        <span class="lu-skill-chip"><span>深度访谈</span></span>
+                        <span class="lu-skill-chip"><span>AI工具</span></span>
+                        <span class="lu-skill-chip"><span>内容创作</span></span>
+                        <span class="lu-skill-chip"><span>平台运营</span></span>
+                        <span class="lu-skill-chip"><span>wps计算机二级</span></span>
+                        <span class="lu-skill-chip"><span>PPT</span></span>
+                    </div>
+                    <div class="lu-life-photos">
+                        <div class="lu-life-photo"><img src="../photos/shenghuozhao1.jpg" alt="生活照"></div>
+                        <div class="lu-life-photo"><img src="../photos/shenghuozhao2.jpg" alt="生活照"></div>
+                        <div class="lu-life-photo"><img src="../photos/shenghuozhao3.jpg" alt="生活照"></div>
+                        <div class="lu-life-photo"><img src="../photos/shenghuozhao4.jpg" alt="生活照"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="lu-section lu-section-red lu-edu-section" aria-labelledby="education-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="education-title">Education</h2>
+                <div class="lu-edu-split">
+                    <div class="lu-edu-left lu-reveal">
+                        <ol class="lu-edu-timeline">
+                            <li class="lu-edu-timeline-item">
+                                <p class="lu-edu-date">2020.09 — 2024.06</p>
+                                <h3 class="lu-edu-title">湖南大学 · 新闻学 · 本科</h3>
+                                <p class="lu-edu-text">系统学习新闻学理论知识与专业技能，被评为优秀毕业生。在校期间担任校园组织负责人，策划多起大型活动。</p>
+                                <div class="lu-edu-photostack">
+                                    <div class="lu-edu-photo-card lu-ep-1" style="background-image: url('../photos/benke1.jpg');"></div>
+                                    <div class="lu-edu-photo-card lu-ep-2" style="background-image: url('../photos/benke2.jpg');"></div>
+                                    <div class="lu-edu-photo-card lu-ep-3" style="background-image: url('../photos/benke3.png');"></div>
+                                </div>
+                            </li>
+                            <li class="lu-edu-timeline-item">
+                                <p class="lu-edu-date">2025.09 — 2028.06</p>
+                                <h3 class="lu-edu-title">湖南大学 · 新闻传播学 · 硕士</h3>
+                                <p class="lu-edu-text">学术型硕士研究生，保研。完成国内主流大语言模型对齐实证研究，成果入选国内四个高水平学术会议，获何微新闻奖研究生论坛二等奖。</p>
+                                <div class="lu-edu-photostack">
+                                    <div class="lu-edu-photo-card lu-ep-1" style="background-image: url('../photos/shuoshi1.jpg');"></div>
+                                    <div class="lu-edu-photo-card lu-ep-2" style="background-image: url('../photos/shuoshi2.jpg');"></div>
+                                    <div class="lu-edu-photo-card lu-ep-3" style="background-image: url('../photos/shuoshi3.jpg');"></div>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="lu-edu-right lu-reveal">
+                        <h3 class="lu-subsection-title">获奖荣誉</h3>
+                        <div class="lu-awards-scroll">
+                            <ul class="lu-awards-list">
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2026.06</span><span class="lu-awards-name">“挑战杯”湖南省大学生创业计划竞赛金奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2026.05</span><span class="lu-awards-name">第十届网络空间治理与传媒法治建设论坛暨“何微新闻奖”研究生论坛二等奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2025.10</span><span class="lu-awards-name">湖南大学学业一等奖学金</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2024.03</span><span class="lu-awards-name">湖南大学优秀本科毕业生</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2024.03</span><span class="lu-awards-name">2023年度湖南省青媒奖四项大奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2023.12</span><span class="lu-awards-name">第六届全国大学生网络编辑创新大赛优秀奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2023.12</span><span class="lu-awards-name">第六届全国大学生网络编辑创新大赛华中赛区二等奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2023.10</span><span class="lu-awards-name">湖南大学新闻奖一等奖、年度十佳新媒体案例</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2023.06</span><span class="lu-awards-name">安小乙珀美奖学金</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2023.05</span><span class="lu-awards-name">湖南大学优秀共青团干部</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.12</span><span class="lu-awards-name">2022“策游湖南‘营’出花YOUNG”文旅推广活动二等奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.12</span><span class="lu-awards-name">朝阳优秀学生奖学金</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.11</span><span class="lu-awards-name">湖南大学单项奖学金</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.11</span><span class="lu-awards-name">湖南大学优秀学生干部</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.11</span><span class="lu-awards-name">第五届湖南大学新闻奖十佳学生记者</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.07</span><span class="lu-awards-name">第十三届湖南省大学生广告艺术大赛优秀奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2022.02</span><span class="lu-awards-name">第八届红枫大学生记者节新闻作品大赛优秀奖</span><span class="lu-awards-level">省级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2021.12</span><span class="lu-awards-name">第二届湖南大学融媒体作品大赛一等奖</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2021.12</span><span class="lu-awards-name">湖南大学三好学生</span><span class="lu-awards-level">校级</span></li>
+                                <li class="lu-awards-list-item"><span class="lu-awards-year">2021.11</span><span class="lu-awards-name">国家励志奖学金</span><span class="lu-awards-level">国家级</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="lu-section lu-section-cream" aria-labelledby="experience-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="experience-title">Experience</h2>
+
+                <h3 class="lu-subsection-title-cream lu-reveal">校园经历</h3>
+                <p class="lu-body lu-reveal" style="margin-bottom: 32px;">鼠标悬停查看详细经历</p>
+                <ol class="lu-itimeline">
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 0;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2023.10 — 2024.06</p>
+                        <h3 class="lu-itimeline-title">湖南大学公共服务领军人才（赫曦计划）培育计划第三期</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">系统参与公共服务领域专项培训，深度理解政府治理逻辑与公共政策制定流程。担任共青团中央书记处第一书记阿东到湖南大学考察调研时学校唯一记者，负责全程报道与官方稿件撰写；作为学生代表参加马英九到湖南大学交流活动并发言；入选暑期出访团，赴新加坡国立大学、南洋理工大学交流访问。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/hexijihua1.jpg" alt="赫曦计划" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 1;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2023.10 — 2024.06</p>
+                        <h3 class="lu-itimeline-title">湖南大学校团委宣传部 · 副部长</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">协助处理宣传部的各项事宜，负责宣传片的拍摄。参与接待共青团中央宣传部来湘调研，负责接待清华大学、澳门大学师生来校调研交流，作为主要学生发言。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/xiaotuanwei1.png" alt="校团委宣传部" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 2;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2020.10 — 2023.07</p>
+                        <h3 class="lu-itimeline-title">湖南大学青年媒体中心 · 主编</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">各平台编辑稿件200+，总阅读量50w+，被主流媒体转载40+次。规划上线视频号、小红书、抖音三新渠道，任期内公众号粉丝翻倍，综合影响力排名全国高校前三。获评湖南省青媒奖年度影响力新媒体账号、湖南大学十佳学生记者。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/qingnienmeitizhongxin1.jpg" alt="青年媒体中心" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 3;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2021.09 — 2022.09</p>
+                        <h3 class="lu-itimeline-title">新闻与传播学院学生会 · 学习部部长</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">独立策划并主办20+场校内外大型讲座，单场参与人数200+，涉及省级媒体记者、青年导演曾赠等行业嘉宾。获评校优秀学生干部。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/xueshenghui1.jpg" alt="学生会学习部" loading="lazy"></div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="internship" class="lu-section lu-section-cream" aria-labelledby="internship-title" style="border-top: 1px solid rgba(46,42,38,0.08);">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="internship-title">Experience</h2>
+
+                <h3 class="lu-subsection-title-cream lu-reveal">实习经历</h3>
+                <p class="lu-body lu-reveal" style="margin-bottom: 32px;">鼠标悬停查看详细工作内容</p>
+                <ol class="lu-itimeline">
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 0;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2025.09 — 2026.07</p>
+                        <h3 class="lu-itimeline-title">湖南大学教育舆情研究中心 · 舆情实习生</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">独立撰写高教领域舆情专报30+篇，3篇获教育部相关部门采纳；主导多起校园负面舆情应急处置，建立从数据监控到策略建议的标准化分析流程。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/yuqingyanjiuzhongxin1.jpg" alt="舆情研究中心" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 1;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2025.07 — 2025.09</p>
+                        <h3 class="lu-itimeline-title">人民网 · 深度调查实习记者</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">参与4篇内参选题全链路跟进，独立完成线索挖掘、背景调研、采访执行与稿件撰写。其中一篇内参提交后，同期中央层面下发该领域专项政策文件。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/renminwang1.jpg" alt="人民网" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 2;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2024.08 — 2025.07</p>
+                        <h3 class="lu-itimeline-title">湖南隆回白水洞赫曦小学 · 研究生支教团</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">第二十六届研究生支教团志愿者，全职一年支教。负责一、五、六年级多班语文、英语、音乐教学，覆盖学生100+；运营个人小红书账号，单篇笔记最高浏览量32w。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/yanjiushengzhijiaotuan1.jpg" alt="研究生支教团" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 3;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2023.12 — 2024.02</p>
+                        <h3 class="lu-itimeline-title">长沙银行 · 项目支持实习生</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">评估并推进快乐益家慈善基金会慈善项目，参与项目筛选、效果评估与资源分配。独立统筹年终手册全流程，负责文字撰写与H5交互制作。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/changshayinhang.jpg" alt="长沙银行" loading="lazy"></div>
+                    </li>
+                    <li class="lu-itimeline-item lu-reveal" style="--ri: 4;">
+                        <span class="lu-itimeline-dot"></span>
+                        <p class="lu-itimeline-date">2023.07 — 2023.09</p>
+                        <h3 class="lu-itimeline-title">新华网湖南分公司 · 实习记者</h3>
+                        <div class="lu-itimeline-detail">
+                            <div class="lu-itimeline-detail-inner">
+                                <p class="lu-itimeline-detail-text">独立完成消息、通讯、海报长图等15篇署名作品，其中一文阅读量210w+，登上新华网客户端湖南频道头条。深度参与选题策划与爆款内容生产。</p>
+                            </div>
+                        </div>
+                        <div class="lu-itimeline-photo"><img src="../photos/xinhuawang1.jpg" alt="新华网" loading="lazy"></div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="projects" class="lu-section lu-section-red" aria-labelledby="projects-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="projects-title">Projects</h2>
+                <div class="lu-proj-grid">
+                    <article class="lu-proj-card lu-reveal" style="--ri: 0;">
+                        <div class="lu-proj-cover"><img src="../photos/damoxing1.jpg" alt="大语言模型对齐研究"></div>
+                        <p class="lu-proj-role">独立作者 · 2026.04 — 2026.06</p>
+                        <h3 class="lu-proj-title">顺从还是反抗？国内主流大语言模型的双重对齐研究</h3>
+                        <div class="lu-proj-detail">
+                            <p class="lu-proj-detail-text">选取 DeepSeek-V3、Qwen3.6-plus、Ernie-4.5-Turbo 三个国内主流大模型，聚焦高价彩礼、数字复活、算法困境三大本土争议议题。构建"价值-话语"双维分析框架，设计五级梯度提示词，通过 API 接口批量获取语料数据，完成大模型对齐表现的实证考察。</p>
+                            <p class="lu-proj-detail-text">研究成果在人工智能与平台经济论坛等4个高水平学术会议汇报，获第十届网络空间治理与传媒法治建设论坛暨"何微新闻奖"研究生论坛二等奖。</p>
+                        </div>
+                    </article>
+                    <article class="lu-proj-card lu-reveal" style="--ri: 1;">
+                        <div class="lu-proj-cover"><img src="../photos/xiaoyuanlianzong1.jpg" alt="校园恋综在湖大遇见你"></div>
+                        <p class="lu-proj-role">总导演、监制 · 2023.04 — 2023.07</p>
+                        <h3 class="lu-proj-title">校园恋综《在湖大，遇见你》</h3>
+                        <div class="lu-proj-detail">
+                            <p class="lu-proj-detail-text">洞察校园情感社交需求缺口，发起并策划首档校园恋爱微综艺，成功争取上级部门专项资金支持。统筹策划、场地谈判、拍摄执行、后期制作、宣发推广全流程，协调40+人跨团队协作。</p>
+                            <p class="lu-proj-detail-text">B站播放量30w+，获评湖南省青媒奖年度最佳文化产品，被哔哩哔哩公众号、今日女报官方转载。</p>
+                            <a class="lu-proj-link" href="https://b23.tv/BeMnEDy" target="_blank" rel="noopener">点击观看《在湖大，遇见你》 →</a>
+                        </div>
+                    </article>
+                    <article class="lu-proj-card lu-reveal" style="--ri: 2;">
+                        <div class="lu-proj-cover"><img src="../photos/ceyouhunan.png" alt="策游湖南文旅推广活动"></div>
+                        <p class="lu-proj-role">负责人 · 2022.12</p>
+                        <h3 class="lu-proj-title">2022“策游湖南‘营’出花YOUNG”文旅推广活动</h3>
+                        <div class="lu-proj-detail">
+                            <p class="lu-proj-detail-text">制定抖音+微博双渠道竞争策略，带领团队发布原创视频115条，总点赞1.1w+，总浏览量100.5w；微博话题浏览量1160w。</p>
+                            <p class="lu-proj-detail-text">最终获全省二等奖（第三名），抖音单项、团队协作、视频创作三项单项第一。</p>
+                        </div>
+                    </article>
+                    <article class="lu-proj-card lu-reveal" style="--ri: 3;" onclick="window.location.href='works.html';">
+                        <div class="lu-proj-cover"><img src="../photos/cais-works-cover.jpg" alt="Cai's Works"></div>
+                        <p class="lu-proj-role">调研报告、新媒体作品、文章随笔</p>
+                        <h3 class="lu-proj-title">其他</h3>
+                        <div class="lu-proj-detail">
+                            <p class="lu-proj-detail-text">更多项目与作品，请点击查看。</p>
+                            <a class="lu-proj-link" href="works.html">点击查看详情 →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="lu-section lu-section-dark" aria-labelledby="contact-title">
+            <div class="lu-container lu-contact-inner">
+                <h2 class="lu-section-headline lu-contact-title lu-reveal" id="contact-title">Contact</h2>
+                <p class="lu-body lu-contact-body lu-reveal">欢迎与我联系，期待能在新的地方和您共事。我很需要机会！</p>
+                <div class="lu-contact-links lu-reveal">
+                    <a class="lu-contact-link" href="mailto:xxxxv@hnu.edu.cn">
+                        <span class="lu-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+                        邮箱 · xxxxv@hnu.edu.cn
+                    </a>
+                    <a class="lu-contact-link" href="#contact">
+                        <span class="lu-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+                        微信 · hdhkaya
+                    </a>
+                    <a class="lu-contact-link" href="tel:19074956259">
+                        <span class="lu-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                        电话 · 19074956259
+                    </a>
+                    <a class="lu-contact-link" href="https://xhslink.cn/m/ACp2v5SdWL9" target="_blank" rel="noopener">
+                        <span class="lu-contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.77 1.46 5.24 3.76 6.86V22l3.64-2.2c.84.2 1.72.3 2.6.3 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/><circle cx="8.5" cy="10.5" r="0.8" fill="currentColor"/><circle cx="12" cy="10.5" r="0.8" fill="currentColor"/><circle cx="15.5" cy="10.5" r="0.8" fill="currentColor"/></svg></span>
+                        小红书 · 天天不吃小洋葱
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="lu-footer" aria-label="页脚">
+            <div class="lu-container lu-footer-inner">
+                <div class="lu-footer-logo">夏银彩</div>
+                <p class="lu-footer-tagline">湖南大学 · 新闻传播学 · 2028</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Back to top -->
+    <button class="lu-back-top" id="backTop" aria-label="返回顶部" onclick="window.scrollTo({top:0,behavior:'smooth'});">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        <svg class="lu-back-top-ring" viewBox="0 0 48 48">
+            <circle class="lu-ring-track" cx="24" cy="24" r="23"/>
+            <circle class="lu-ring-progress" id="ringProgress" cx="24" cy="24" r="23" stroke-dasharray="144.5" stroke-dashoffset="144.5"/>
+        </svg>
+    </button>
+
+    <script>
+      lucide.createIcons();
+      (function(){
+        // Scroll reveal
+        var observer = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting){
+              entry.target.classList.add('lu-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.lu-reveal').forEach(function(el){
+          observer.observe(el);
+        });
+
+        // Back to top visibility + scroll progress ring
+        var backTop = document.getElementById('backTop');
+        var ringProgress = document.getElementById('ringProgress');
+        var ringCircumference = 2 * Math.PI * 23; // ~144.5
+        var heroPhoto = document.querySelector('.lu-hero-photo');
+
+        function onScroll(){
+          var scrollY = window.scrollY;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          var progress = docHeight > 0 ? scrollY / docHeight : 0;
+
+          // Back to top visibility
+          if(scrollY > 400){ backTop.classList.add('lu-visible'); }
+          else { backTop.classList.remove('lu-visible'); }
+
+          // Progress ring
+          if(ringProgress){
+            ringProgress.style.strokeDashoffset = ringCircumference * (1 - progress);
+          }
+
+          // Hero parallax — subtle background position shift (desktop only)
+          if(heroPhoto && scrollY < window.innerHeight && window.matchMedia('(hover: hover) and (min-width: 769px)').matches){
+            var parallax = scrollY * 0.04;
+            heroPhoto.style.backgroundPosition = 'center ' + (0 + parallax) + '%';
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Scroll spy — highlight active nav item via viewport center line
+        var sections = document.querySelectorAll('section[id]');
+        var navItems = document.querySelectorAll('.lu-nav-item');
+        var spyObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting){
+              var id = entry.target.getAttribute('id');
+              navItems.forEach(function(item){
+                if(item.getAttribute('href') === '#' + id){
+                  item.classList.add('lu-nav-active');
+                } else {
+                  item.classList.remove('lu-nav-active');
+                }
+              });
+            }
+          });
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+        sections.forEach(function(s){ spyObserver.observe(s); });
+      })();
+    </script>
+</body>
+</html>

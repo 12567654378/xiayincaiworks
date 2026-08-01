@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏银彩 · 作品集</title>
+    <style id="theme-vars">
+:root {
+  --lu-primary: #2e2a26;
+  --lu-primary-dark: #211e1b;
+  --lu-primary-muted: #6e6864;
+
+  /* Surfaces */
+  --lu-background: #f2eee8;
+  --lu-card: #ffffff;
+  --lu-cream: #f2eee8;
+  --lu-foreground: #211e1b;
+  --lu-muted: rgba(250, 247, 242, 0.70);
+  --lu-white: #faf7f2;
+  --lu-text-on-red-muted: rgba(250, 247, 242, 0.58);
+  --lu-text-on-cream-muted: rgba(33, 30, 27, 0.60);
+  --lu-hero-fallback: #2e2a26;
+
+  /* Borders */
+  --lu-border: rgba(250, 247, 242, 0.18);
+  --lu-border-dark: rgba(33, 30, 27, 0.10);
+  --lu-border-strong: rgba(250, 247, 242, 0.55);
+  --lu-border-light: rgba(250, 247, 242, 0.12);
+
+  /* Radius */
+  --lu-radius-sm: 4px;
+  --lu-radius-md: 8px;
+  --lu-radius-lg: 12px;
+
+  /* Typography */
+  --lu-font-sans: "Quicksand", "YouYuan", "幼圆", "STYouyuan", "华文幼圆", "Segoe UI", sans-serif;
+  --lu-font-heavy: "FZXiaoBiaoSong-B05S", "方正小标宋_GBK", "STZhongsong", "STSong", "SimSun", "Songti SC", serif;
+  --lu-font-lisu: "Alibaba PuHuiTi", "阿里巴巴普惠体", "AlibabaSans", sans-serif;
+  --lu-font-display: "Arial Black", "Arial Bold", "Helvetica Neue", sans-serif;
+  --lu-font-serif: var(--lu-font-heavy);
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--lu-background); color: var(--lu-foreground); font-family: var(--lu-font-sans); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      a { color: inherit; }
+
+      /* Container & Section */
+      .lu-container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+      .lu-section { padding: 80px 0; scroll-margin-top: 90px; }
+      .lu-section-red { background: var(--lu-primary); color: var(--lu-white); }
+      .lu-section-cream { background: var(--lu-cream); color: var(--lu-foreground); }
+      .lu-section-dark { background: var(--lu-primary-dark); color: var(--lu-white); }
+
+      /* Floating pill nav */
+      .lu-floating-nav {
+        position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+        z-index: 100; display: flex; align-items: center; gap: 2px;
+        padding: 6px 8px; background: rgba(255,255,255,0.55);
+        backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255,255,255,0.4); border-radius: 999px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
+      }
+      .lu-nav-item {
+        display: flex; flex-direction: column; align-items: center; gap: 1px;
+        padding: 7px 18px; border-radius: 999px; text-decoration: none;
+        transition: background 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1);
+        position: relative;
+      }
+      .lu-nav-item:hover { background: rgba(46,42,38,0.07); transform: translateY(-1px); }
+      .lu-nav-item.lu-nav-active { background: var(--lu-primary); }
+      .lu-nav-item.lu-nav-active .lu-nav-zh { color: var(--lu-white); }
+      .lu-nav-item.lu-nav-active .lu-nav-en { color: rgba(250,247,242,0.6); }
+      .lu-nav-zh { font-family: var(--lu-font-sans); font-size: 13px; font-weight: 400; color: var(--lu-foreground); line-height: 1.15; transition: color 0.3s ease; }
+      .lu-nav-en { font-family: var(--lu-font-sans); font-size: 8px; font-weight: 400; color: var(--lu-text-on-cream-muted); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.15; transition: color 0.3s ease; }
+
+      /* Works Hero */
+      .lu-works-hero {
+        min-height: 60vh;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(33,30,27,0.96) 0%, rgba(46,42,38,0.93) 100%),
+                    url('../photos/cais-works-cover.jpg');
+        background-size: cover; background-position: center;
+        color: var(--lu-white);
+        padding: 130px 24px 72px;
+        position: relative; overflow: hidden;
+      }
+      .lu-works-hero-kicker {
+        font-family: var(--lu-font-sans); font-size: 12px; font-weight: 400;
+        text-transform: uppercase; letter-spacing: 0.18em;
+        margin: 0 0 24px 0; color: var(--lu-muted);
+        animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+      }
+      .lu-works-hero-title {
+        font-family: var(--lu-font-display);
+        font-size: clamp(48px, 8vw, 88px);
+        line-height: 1.05; font-weight: 900; letter-spacing: 0.01em;
+        margin: 0 0 20px 0; text-transform: capitalize; text-wrap: balance;
+        animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s both;
+      }
+      .lu-works-hero-subtitle {
+        font-family: var(--lu-font-sans);
+        font-size: clamp(15px, 1.4vw, 18px);
+        line-height: 1.75; font-weight: 400;
+        margin: 0 0 40px 0; color: var(--lu-muted); max-width: 640px;
+        animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s both;
+      }
+      .lu-works-hero-buttons {
+        display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+        animation: lu-hero-fade 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s both;
+      }
+      @keyframes lu-hero-fade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+      /* Buttons */
+      .lu-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px; border-radius: var(--lu-radius-sm); font-family: var(--lu-font-sans); font-size: 14px; font-weight: 400; letter-spacing: 0.04em; text-decoration: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); cursor: pointer; border: none; }
+      .lu-btn-primary { background: var(--lu-white); color: var(--lu-primary); }
+      .lu-btn-primary:hover { background: rgba(250,247,242,0.92); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+      .lu-btn-outline { background: transparent; color: var(--lu-white); border: 1px solid var(--lu-border-strong); }
+      .lu-btn-outline:hover { background: rgba(250,247,242,0.1); border-color: var(--lu-white); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+      .lu-btn svg { width: 16px; height: 16px; }
+
+      /* Section headline & body */
+      .lu-section-headline { font-family: var(--lu-font-display); font-size: clamp(36px, 4vw, 56px); line-height: 1.1; font-weight: 900; letter-spacing: 0.01em; margin: 0 0 24px 0; text-transform: capitalize; text-wrap: balance; }
+      .lu-subsection-title-cream { font-family: var(--lu-font-heavy); font-size: 18px; line-height: 1.3; font-weight: 400; letter-spacing: 0.03em; margin: 0 0 20px 0; color: rgba(33, 30, 27, 0.72); }
+      .lu-subsection-title-dark { font-family: var(--lu-font-heavy); font-size: 16px; line-height: 1.3; font-weight: 400; letter-spacing: 0.04em; margin: 0 0 20px 0; color: rgba(250, 247, 242, 0.82); }
+      .lu-body { font-family: var(--lu-font-sans); font-size: 16px; line-height: 1.75; font-weight: 400; margin: 0 0 32px 0; }
+      .lu-section-cream .lu-body { color: var(--lu-text-on-cream-muted); }
+      .lu-section-dark .lu-body { color: var(--lu-muted); }
+
+      /* Work card grid */
+      .lu-work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .lu-work-grid-single { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+      /* Work cards */
+      .lu-work-card {
+        padding: 24px 28px;
+        border-radius: var(--lu-radius-md);
+        transition: border-color 0.4s ease, background-color 0.4s ease, transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s ease;
+        position: relative; overflow: hidden;
+      }
+      .lu-section-cream .lu-work-card {
+        background: var(--lu-card);
+        border: 1px solid var(--lu-border-dark);
+      }
+      .lu-section-cream .lu-work-card:hover {
+        border-color: rgba(33,30,27,0.22);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+      }
+      .lu-section-dark .lu-work-card {
+        background: transparent;
+        border: 1px solid var(--lu-border-light);
+      }
+      .lu-section-dark .lu-work-card:hover {
+        border-color: var(--lu-border-strong);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+      }
+
+      /* Work card content */
+      .lu-work-role {
+        font-family: var(--lu-font-sans); font-size: 11px; font-weight: 400;
+        text-transform: uppercase; letter-spacing: 0.12em;
+        margin: 0 0 10px 0;
+      }
+      .lu-section-cream .lu-work-role { color: var(--lu-text-on-cream-muted); }
+      .lu-section-dark .lu-work-role { color: var(--lu-muted); }
+      .lu-work-title {
+        font-family: var(--lu-font-heavy); font-size: 16px; line-height: 1.35;
+        font-weight: 400; letter-spacing: 0.03em; margin: 0;
+        transition: transform 0.3s ease;
+      }
+      .lu-section-cream .lu-work-title { color: var(--lu-foreground); }
+      .lu-section-dark .lu-work-title { color: rgba(250, 247, 242, 0.82); }
+      .lu-work-card:hover .lu-work-title { transform: translateX(6px); }
+      .lu-work-note {
+        font-family: var(--lu-font-sans); font-size: 13px; line-height: 1.7;
+        font-weight: 400; margin: 12px 0 0 0;
+      }
+      .lu-section-cream .lu-work-note { color: var(--lu-text-on-cream-muted); }
+      .lu-section-dark .lu-work-note { color: var(--lu-muted); }
+
+      /* Badges */
+      .lu-badge-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .lu-badge {
+        display: inline-flex; align-items: center;
+        font-family: var(--lu-font-sans); font-size: 11px; font-weight: 400;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        padding: 4px 10px; border-radius: var(--lu-radius-sm);
+        line-height: 1.4;
+      }
+      .lu-section-cream .lu-badge { background: rgba(46,42,38,0.06); color: var(--lu-primary-muted); }
+      .lu-section-dark .lu-badge { background: rgba(250,247,242,0.08); color: var(--lu-text-on-red-muted); }
+
+      /* Detail block for research/report */
+      .lu-work-detail {
+        font-family: var(--lu-font-sans); font-size: 14px; line-height: 1.85;
+        font-weight: 400; margin: 16px 0 0 0;
+        padding: 18px 22px;
+        border-left: 2px solid var(--lu-primary-muted);
+        border-radius: 0 var(--lu-radius-sm) var(--lu-radius-sm) 0;
+      }
+      .lu-section-cream .lu-work-detail {
+        background: rgba(33,30,27,0.035);
+        color: var(--lu-text-on-cream-muted);
+      }
+      .lu-section-dark .lu-work-detail {
+        background: rgba(250,247,242,0.04);
+        color: var(--lu-muted);
+      }
+      .lu-work-link {
+        font-family: var(--lu-font-sans); font-size: 12px; font-weight: 400;
+        text-transform: uppercase; letter-spacing: 0.1em;
+        text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+        border-bottom: 1px solid currentColor; padding-bottom: 2px;
+        transition: gap 0.3s ease; margin-top: 14px;
+      }
+      .lu-section-cream .lu-work-link { color: var(--lu-primary); }
+      .lu-section-dark .lu-work-link { color: var(--lu-white); }
+      .lu-work-link:hover { gap: 12px; }
+
+      /* Footer */
+      .lu-footer { background: var(--lu-primary-dark); color: var(--lu-white); padding: 64px 0 48px; text-align: center; border-top: 1px solid var(--lu-border-light); }
+      .lu-footer-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+      .lu-footer-logo { font-family: var(--lu-font-sans); font-size: 28px; font-weight: 400; letter-spacing: 0.08em; }
+      .lu-footer-tagline { font-family: var(--lu-font-sans); font-size: 13px; font-weight: 400; letter-spacing: 0.06em; color: var(--lu-muted); margin: 0; }
+
+      /* Back to top */
+      .lu-back-top { position: fixed; bottom: 28px; right: 28px; z-index: 90; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(12px); transition: all 0.4s cubic-bezier(0.16,1,0.3,1); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+      .lu-back-top.lu-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+      .lu-back-top:hover { background: var(--lu-white); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+      .lu-back-top svg { width: 20px; height: 20px; color: var(--lu-primary); }
+      .lu-back-top-ring { position: absolute; inset: -1px; pointer-events: none; }
+      .lu-back-top-ring circle { fill: none; stroke-width: 2; }
+      .lu-back-top-ring .lu-ring-track { stroke: rgba(46,42,38,0.08); }
+      .lu-back-top-ring .lu-ring-progress { stroke: var(--lu-primary); stroke-linecap: round; transform: rotate(-90deg); transform-origin: center; transition: stroke-dashoffset 0.15s linear; }
+
+      /* Scroll reveal */
+      .lu-reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+      .lu-reveal.lu-revealed { opacity: 1; transform: translateY(0); }
+      .lu-section-headline.lu-reveal { transition-delay: 0s; }
+      .lu-body.lu-reveal { transition-delay: 0.1s; }
+      .lu-work-card.lu-reveal { transition-delay: calc(var(--ri, 0) * 0.1s), border-color 0.4s ease, background-color 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+
+      /* Responsive */
+      @media (min-width: 1024px) {
+        .lu-container { padding: 0 48px; }
+        .lu-section { padding: 110px 0; }
+      }
+      @media (max-width: 1024px) {
+        .lu-floating-nav { gap: 0; padding: 4px 4px; }
+        .lu-nav-item { padding: 6px 12px; }
+        .lu-nav-zh { font-size: 12px; }
+        .lu-nav-en { font-size: 7px; }
+      }
+      @media (max-width: 768px) {
+        .lu-floating-nav { top: 10px; max-width: calc(100vw - 20px); overflow-x: auto; gap: 0; padding: 4px 4px; -webkit-overflow-scrolling: touch; }
+        .lu-floating-nav::-webkit-scrollbar { display: none; }
+        .lu-floating-nav { -ms-overflow-style: none; scrollbar-width: none; }
+        .lu-nav-item { padding: 5px 10px; flex-shrink: 0; }
+        .lu-nav-zh { font-size: 11px; }
+        .lu-nav-en { font-size: 7px; }
+        .lu-work-grid { grid-template-columns: 1fr; }
+        .lu-works-hero { padding: 110px 24px 56px; min-height: 50vh; }
+        .lu-back-top { bottom: 20px; right: 20px; }
+        .lu-section { padding: 56px 0; }
+      }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Floating pill nav -->
+        <nav class="lu-floating-nav" aria-label="作品集导航">
+            <a class="lu-nav-item" href="home.html"><span class="lu-nav-zh">首页</span><span class="lu-nav-en">Home</span></a>
+            <a class="lu-nav-item" href="#newmedia"><span class="lu-nav-zh">新媒体</span><span class="lu-nav-en">New Media</span></a>
+            <a class="lu-nav-item" href="#articles"><span class="lu-nav-zh">文章</span><span class="lu-nav-en">Articles</span></a>
+            <a class="lu-nav-item" href="#research"><span class="lu-nav-zh">科研</span><span class="lu-nav-en">Research</span></a>
+            <a class="lu-nav-item" href="#reports"><span class="lu-nav-zh">调研</span><span class="lu-nav-en">Report</span></a>
+            <a class="lu-nav-item" href="#video"><span class="lu-nav-zh">视频</span><span class="lu-nav-en">Video</span></a>
+            <a class="lu-nav-item" href="home.html#projects"><span class="lu-nav-zh">返回</span><span class="lu-nav-en">Back</span></a>
+        </nav>
+
+        <!-- Hero -->
+        <section id="hero" class="lu-works-hero" aria-label="作品集主视觉">
+            <p class="lu-works-hero-kicker">湖南大学 · 夏银彩 · 作品集</p>
+            <h1 class="lu-works-hero-title">Cai's Works</h1>
+            <p class="lu-works-hero-subtitle">新媒体作品 · 文章随笔 · 科研论文 · 调研报告 · 视频制作</p>
+            <div class="lu-works-hero-buttons">
+                <a class="lu-btn lu-btn-primary" href="home.html">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    返回首页
+                </a>
+                <a class="lu-btn lu-btn-outline" href="#newmedia">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                    浏览作品
+                </a>
+            </div>
+        </section>
+
+        <!-- 新媒体作品 (cream) -->
+        <section id="newmedia" class="lu-section lu-section-cream" aria-labelledby="newmedia-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="newmedia-title">New Media</h2>
+                <p class="lu-body lu-reveal">新媒体作品涵盖海报、图文、动画、主题策划等多种形式，多件作品获省级以上奖项或被主流媒体收录。</p>
+                <div class="lu-work-grid">
+                    <article class="lu-work-card lu-reveal" style="--ri: 0;">
+                        <p class="lu-work-role">新媒体作品 · 数字幻境</p>
+                        <h3 class="lu-work-title">名著数字幻境∣红楼梦中游 情深胜画意</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">阅读量 210w</span>
+                        </div>
+                        <a class="lu-work-link" href="https://app.xinhuanet.com/news/article.html?articleId=c3d049f863f261ecbe5fc9aa95ef4b4b&timestamp=93494" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 1;">
+                        <p class="lu-work-role">新媒体作品 · 一图读懂</p>
+                        <h3 class="lu-work-title">一图读懂｜湖南省恢复和扩大消费的若干政策措施</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">阅读量 51w+</span>
+                        </div>
+                        <a class="lu-work-link" href="http://www.hn.xinhuanet.com/20230903/d24dd28a1b6f45cdadfb3fec86da4dce/c.html" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 2;">
+                        <p class="lu-work-role">新媒体作品 · 主题策划</p>
+                        <h3 class="lu-work-title">青春合伙人丨世界无烟日：请多种植粮食，而非烟草</h3>
+                        <p class="lu-work-note">获第六届大学生网络编辑大赛华中赛区二等奖、全国优秀奖，被新湖南首页头条收录，浏览量11.5万。</p>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">华中赛区二等奖</span>
+                            <span class="lu-badge">全国优秀奖</span>
+                            <span class="lu-badge">新湖南首页头条</span>
+                        </div>
+                        <a class="lu-work-link" href="https://m.voc.com.cn/xhn/news/202305/18112239.html" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 3;">
+                        <p class="lu-work-role">新媒体作品 · 红色文化传播</p>
+                        <h3 class="lu-work-title">岳麓书院——党的实事求是思想路线的一个发源地</h3>
+                        <p class="lu-work-note">获第二届湖南大学融媒体作品大赛一等奖、第八届红枫大学生记者节新闻作品大赛优秀奖。</p>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">融媒体大赛一等奖</span>
+                            <span class="lu-badge">记者节优秀奖</span>
+                        </div>
+                        <a class="lu-work-link" href="https://v.xiumi.us/stage/v5/4WwIb/320206025" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 4;">
+                        <p class="lu-work-role">新媒体作品 · 人物报道</p>
+                        <h3 class="lu-work-title">他们是“湖大十佳"！</h3>
+                        <a class="lu-work-link" href="https://mp.weixin.qq.com/s/A94467lUv88CUgK8zVrH3w" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 5;">
+                        <p class="lu-work-role">新媒体作品 · 青年主题</p>
+                        <h3 class="lu-work-title">今天，我就是湖大青年了！</h3>
+                        <a class="lu-work-link" href="https://mp.weixin.qq.com/s/UoGH15Qsj6g1QNXYWU9vLg" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 6;">
+                        <p class="lu-work-role">新媒体作品 · 个人账号运营</p>
+                        <h3 class="lu-work-title">小红书@天天不吃小洋葱</h3>
+                        <p class="lu-work-note">独立运营个人小红书账号，单篇笔记阅读量最高32w。</p>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">单篇阅读量 32w</span>
+                        </div>
+                        <a class="lu-work-link" href="https://xhslink.cn/m/ACp2v5SdWL9" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文章随笔 (dark) -->
+        <section id="articles" class="lu-section lu-section-dark" aria-labelledby="articles-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="articles-title">Articles</h2>
+                <p class="lu-body lu-reveal">人物访谈、深度报道与课程作业，展现扎实的文字功底与新闻专业能力。</p>
+                <div class="lu-work-grid">
+                    <article class="lu-work-card lu-reveal" style="--ri: 0;">
+                        <p class="lu-work-role">文章随笔 · 新华访谈</p>
+                        <h3 class="lu-work-title">新华访谈｜黄守道：梦为马勤为径，向难而行图破壁</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">网页专栏报道</span>
+                        </div>
+                        <a class="lu-work-link" href="http://hn.news.cn/zt/2023/fangtan/index.html" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 1;">
+                        <p class="lu-work-role">文章随笔 · 人物报道</p>
+                        <h3 class="lu-work-title">刘泽昊：这就是我，这就是我的选择</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">湖南大学新闻奖二等奖</span>
+                        </div>
+                        <a class="lu-work-link" href="https://mp.weixin.qq.com/s/k5tJhzZB_m5OhJ-xrztbuA" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 2;">
+                        <p class="lu-work-role">文章随笔 · 课程作业</p>
+                        <h3 class="lu-work-title">好记者</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">满分课程作业</span>
+                        </div>
+                        <a class="lu-work-link" href="http://qr61.cn/omFUF0/qMEoJgV" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 3;">
+                        <p class="lu-work-role">文章随笔 · 个人随笔</p>
+                        <h3 class="lu-work-title">美团优选关停，像是我的支教提前结束了</h3>
+                        <a class="lu-work-link" href="http://xhslink.cn/o/7svNnbwLwZU" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 科研论文 (cream) -->
+        <section id="research" class="lu-section lu-section-cream" aria-labelledby="research-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="research-title">Research</h2>
+                <p class="lu-body lu-reveal">聚焦Huliu实证研究。</p>
+                <div class="lu-work-grid">
+                    <article class="lu-work-card lu-reveal" style="--ri: 0;">
+                        <p class="lu-work-role">科研论文 · 独立作者</p>
+                        <h3 class="lu-work-title">顺从还是反抗？国内主流大语言模型的双重对齐研究</h3>
+                        <div class="lu-work-detail">
+                            选取 DeepSeek-V3、Qwen3.6-plus、Ernie-4.5-Turbo 三个国内主流大模型，聚焦高价彩礼、数字复活、算法困境三大本土争议议题。构建"价值-话语"双维分析框架，设计五级梯度提示词，通过 API 接口批量获取语料数据，完成大模型对齐表现的实证考察。研究成果在人工智能与平台经济论坛等4个高水平学术会议汇报，获第十届网络空间治理与传媒法治建设论坛暨"何微新闻奖"研究生论坛二等奖。
+                        </div>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">4个高水平学术会议汇报</span>
+                            <span class="lu-badge">何微新闻奖二等奖</span>
+                        </div>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 1;">
+                        <p class="lu-work-role">科研论文 · 内容分析</p>
+                        <h3 class="lu-work-title">抖音平台新农人自我呈现研究——基于240条抖音短视频的内容分析</h3>
+                        <div class="lu-work-detail">
+                            以抖音短视频平台80个新农人账号的240条视频为样本，采用内容分析法与案例研究法，探究新农人媒介形象的自我呈现特征与策略。研究发现，新农人以中青年为主力，广泛分布于农业大省，通过个人信息展示、视频内容创作构建多元形象，既包括真实质朴的乡土叙事者、乡土文化守望者、数字创业者等正面形象，也存在媒介素养匮乏、价值导向跑偏等负面类型。其自我呈现策略涵盖情感共振、价值升华、前台身份隐匿与人设符号建构四大维度。这些发现丰富了"新农人"媒介形象的研究，并为助力优化"新农人"媒介形象的自我呈现提供实践参考。
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 调研报告 (dark) -->
+        <section id="reports" class="lu-section lu-section-dark" aria-labelledby="reports-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="reports-title">Reports</h2>
+                <p class="lu-body lu-reveal">以阅文集团为案例，深入剖析网络文学企业的经营模式与IP价值链。</p>
+                <div class="lu-work-grid-single">
+                    <article class="lu-work-card lu-reveal" style="--ri: 0;">
+                        <p class="lu-work-role">调研报告 · 案例分析</p>
+                        <h3 class="lu-work-title">阅文集团经营模式调研报告</h3>
+                        <div class="lu-work-detail">
+                            在数字化与全球化背景下，网络文学成为中华文化国际传播的重要载体。阅文集团作为中国网络文学行业的领军企业，自诞生起便在行业中占据着主导地位。基于阅文上市以来的年报、行业报告以及政策文件，采用案例分析、文本分析、数据比较等方法，辅以深度访谈，分析其经营模式。发现阅文集团拥有"在线阅读+版权运营"二元盈利结构，且构建了 IP 价值链，通过内部驱动与全球化拓展，实现了 IP 价值的放大，成为了中国故事出海的标杆。尽管其经营仍面临免费阅读冲击、文化折扣、IP 改编高风险等挑战，但阅文集团的实践表明，构建 IP 全价值链生态、前瞻性应用新技术以及坚持本地化共创，是媒介企业在全球化时代实现商业成功与文化传播的有效路径。
+                        </div>
+                        <a class="lu-work-link" href="../works/夏银彩 阅文集团经营模式调研报告作业.pdf" download>查看报告 →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 视频制作 (cream) -->
+        <section id="video" class="lu-section lu-section-cream" aria-labelledby="video-title">
+            <div class="lu-container">
+                <h2 class="lu-section-headline lu-reveal" id="video-title">Video</h2>
+                <p class="lu-body lu-reveal">涵盖短片、新年献词、广告竞赛与校园综艺等多种视频形式，多件作品获省级奖项或被官方转载。</p>
+                <div class="lu-work-grid">
+                    <article class="lu-work-card lu-reveal" style="--ri: 0;">
+                        <p class="lu-work-role">视频制作 · 短片</p>
+                        <h3 class="lu-work-title">相信光，成为光</h3>
+                        <p class="lu-work-note">负责脚本、统筹、制片、演员、配音、素材整理。</p>
+                        <a class="lu-work-link" href="https://mp.weixin.qq.com/s/X3kUiypPhQE4114yoGKq_w" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 1;">
+                        <p class="lu-work-role">视频制作 · 新年献词</p>
+                        <h3 class="lu-work-title">湖大青年新年献词｜青春的样子</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">"学校共青团"转载</span>
+                        </div>
+                        <a class="lu-work-link" href="https://mp.weixin.qq.com/s/wUxPQKvsF29Tk4C0o60_7A" target="_blank" rel="noopener">点击查看 →</a>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 2;">
+                        <p class="lu-work-role">视频制作 · 广告竞赛</p>
+                        <h3 class="lu-work-title">鱼戏赤尾间</h3>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">湖南省大广赛优秀奖</span>
+                        </div>
+                    </article>
+                    <article class="lu-work-card lu-reveal" style="--ri: 3;">
+                        <p class="lu-work-role">视频制作 · 校园综艺</p>
+                        <h3 class="lu-work-title">校园综艺《在湖大，遇见你》</h3>
+                        <p class="lu-work-note">担任总导演、项目负责人，负责策划、统筹。湖南大学团委官方出品的校园交友综艺节目，B站播放量30w＋。</p>
+                        <div class="lu-badge-group">
+                            <span class="lu-badge">总导演 · 项目负责人</span>
+                            <span class="lu-badge">B站播放量 30w+</span>
+                        </div>
+                        <a class="lu-work-link" href="https://b23.tv/BeMnEDy" target="_blank" rel="noopener">点击观看 →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="lu-footer" aria-label="页脚">
+            <div class="lu-container lu-footer-inner">
+                <div class="lu-footer-logo">夏银彩</div>
+                <p class="lu-footer-tagline">湖南大学 · 新闻传播学 · 2028</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Back to top -->
+    <button class="lu-back-top" id="backTop" aria-label="返回顶部" onclick="window.scrollTo({top:0,behavior:'smooth'});">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+        <svg class="lu-back-top-ring" viewBox="0 0 48 48">
+            <circle class="lu-ring-track" cx="24" cy="24" r="23"/>
+            <circle class="lu-ring-progress" id="ringProgress" cx="24" cy="24" r="23" stroke-dasharray="144.5" stroke-dashoffset="144.5"/>
+        </svg>
+    </button>
+
+    <script>
+      (function(){
+        // Scroll reveal
+        var observer = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting){
+              entry.target.classList.add('lu-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.lu-reveal').forEach(function(el){
+          observer.observe(el);
+        });
+
+        // Back to top visibility + scroll progress ring
+        var backTop = document.getElementById('backTop');
+        var ringProgress = document.getElementById('ringProgress');
+        var ringCircumference = 2 * Math.PI * 23;
+
+        function onScroll(){
+          var scrollY = window.scrollY;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          var progress = docHeight > 0 ? scrollY / docHeight : 0;
+
+          if(scrollY > 400){ backTop.classList.add('lu-visible'); }
+          else { backTop.classList.remove('lu-visible'); }
+
+          if(ringProgress){
+            ringProgress.style.strokeDashoffset = ringCircumference * (1 - progress);
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Scroll spy — highlight active nav item
+        var sections = document.querySelectorAll('section[id]');
+        var navItems = document.querySelectorAll('.lu-nav-item');
+        var spyObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting){
+              var id = entry.target.getAttribute('id');
+              navItems.forEach(function(item){
+                var href = item.getAttribute('href');
+                if(href === '#' + id){
+                  item.classList.add('lu-nav-active');
+                } else {
+                  item.classList.remove('lu-nav-active');
+                }
+              });
+            }
+          });
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+        sections.forEach(function(s){ spyObserver.observe(s); });
+      })();
+    </script>
+</body>
+</html>
